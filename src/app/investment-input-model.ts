@@ -1,14 +1,6 @@
 export interface InvestmentInput {
-    year: number;
-    yearlyInvestment: number;
-    totalInvestment: number;
-    interest: number;
-    totalValue: number;
+  initialInvestment: number;
+  annualInvestment: number;
+  expectedReturn: number;
+  duration: number;
 }
-
-// type InvestmentInputData = {
-//     initialInvestment: number;
-//     annualInvestment: number;
-//     expectedReturn: number;
-//     duration: number;
-// }

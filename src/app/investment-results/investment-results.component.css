@@ -1,15 +1,29 @@
-header {
+#investment-results {
+  padding: 1rem;
+  max-width: 40rem;
+  margin: 2rem auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  border-bottom: 2px solid #3c8371;
+  color: #3c8371;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+tbody td {
+  padding: 0.5rem;
   text-align: center;
-  margin: 3rem auto;
+  font-size: 0.85rem;
+  color: #c2e9e0;
 }
 
-header img {
-  width: 5rem;
-  height: 5rem;
-  object-fit: contain;
-  background-color: transparent;
-}
-
-header h1 {
-  font-size: 1.5rem;
+.center {
+  text-align: center;
+  color: #c2e9e0;
 }

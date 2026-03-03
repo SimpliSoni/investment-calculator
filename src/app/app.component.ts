@@ -2,17 +2,34 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { UserInputComponent } from './user-input/user-input.component';
 import type { InvestmentInput } from './investment-input-model';
+import { InvestmentResultsComponent } from "./investment-results/investment-results.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  imports: [HeaderComponent, UserInputComponent],
+  imports: [HeaderComponent, UserInputComponent, InvestmentResultsComponent],
 })
 export class AppComponent {
-  calculateInvestmentResults(data: InvestmentInput) {
+  resultsData?: {
+    year: number,
+    intrest: number,
+    valueEndOfYear: number,
+    annualInvestment: number,
+    totalInterest: number,
+    totalAmountInvested: number,
+  }[];
+
+  onCalculateInvestmentResults(data: InvestmentInput) {
     const { initialInvestment, annualInvestment, expectedReturn, duration } = data;
-    const annualData = [];
+    const annualData: {
+      year: number,
+      intrest: number,
+      valueEndOfYear: number,
+      annualInvestment: number,
+      totalInterest: number,
+      totalAmountInvested: number,
+    }[] = [];
     let investmentValue = initialInvestment;
 
     for (let i = 0; i < duration; i++) {
@@ -23,7 +40,7 @@ export class AppComponent {
         investmentValue - annualInvestment * year - initialInvestment;
       annualData.push({
         year: year,
-        interest: interestEarnedInYear,
+        intrest: interestEarnedInYear,
         valueEndOfYear: investmentValue,
         annualInvestment: annualInvestment,
         totalInterest: totalInterest,
@@ -31,6 +48,6 @@ export class AppComponent {
       });
     }
 
-    console.log(annualData);
+    this.resultsData = annualData;
   }
 }
