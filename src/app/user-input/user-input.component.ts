@@ -16,15 +16,14 @@ export class UserInputComponent {
   enteredExpectedReturn = signal('5')
   enteredDuration = signal('10')
 
-  
-
   onSubmit() {
     this.investmentService.CalculateInvestmentResults({ 
       initialInvestment: parseFloat(this.enteredInitialInvestment()),
       annualInvestment: parseFloat(this.enteredAnnualInvestment()),
       expectedReturn: parseFloat(this.enteredExpectedReturn()),
-      duration: parseInt(this.enteredDuration(), 10), 
+      duration: parseInt(this.enteredDuration(), 10),
     });
+
     this.enteredInitialInvestment.set('0');
     this.enteredAnnualInvestment.set('0');
     this.enteredExpectedReturn.set('5');
